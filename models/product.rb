@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   has_many :order_items
   has_many :orders, through: :order_items
 
-  scope :cheap, -> { where('price < 20') }
+  scope :cheap, -> { where('price <= 20') }
 
   def to_s
     "N°#{id} : #{name}, #{price}CHF"
