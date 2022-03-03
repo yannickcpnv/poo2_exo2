@@ -12,7 +12,7 @@ product4 = Product.create!(name: 'truck', price: 200, description: 'A truck', ca
 client = Client.create!(firstname: 'yannick', lastname: 'baudraz')
 Client.create!(firstname: 'john', lastname: 'doedoe')
 
-order1 = client.orders.create(status: 'PROGRESS', order_items: [
+client.orders.create(status: 'PROGRESS', order_items: [
   OrderItem.new(quantity: 2, product: product1),
   OrderItem.new(quantity: 125, product: product3),
   OrderItem.new(quantity: 3, product: product4)
@@ -27,6 +27,5 @@ order2.order_items << [
 ]
 order2.save!
 client.orders << order2
-client.save!
 
 puts '--SEEDERS DONE--'
