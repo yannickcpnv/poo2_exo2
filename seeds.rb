@@ -4,7 +4,7 @@ require_relative 'models'
 pcr = Category.create!(name: 'PCR')
 sup = Category.create!(name: 'SUP')
 
-product1 = Product.create!(name: 'apple', price: 2.35, description: 'Little apple', category: pcr)
+product1 = Product.create!(name: 'apple', price: 0.15, description: 'Little apple', category: pcr)
 product2 = Product.create!(name: 'lemon', price: 6.15, description: 'Big lemon', category: pcr)
 product3 = Product.create!(name: 'limousine', price: 25.95, description: 'A limousine', category: sup)
 product4 = Product.create!(name: 'truck', price: 200, description: 'A truck', category: sup)
