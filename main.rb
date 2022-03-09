@@ -10,7 +10,7 @@ def ex3
   puts
 
   puts '--Display cheap products from client--'
-  client.products.cheap.each { |p| puts p }
+  client.ordered_products.cheap.each { |p| puts p }
   puts
 
   puts '--Display products ordered with a quantity of more than 50 from client--'
