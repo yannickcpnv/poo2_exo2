@@ -41,18 +41,40 @@ def ex4
   puts
 
   puts "--Try to create a client with a 4 characters lastname--"
+  client = nil
   begin
-    Client.create!(firstname: 'jouhny', lastname: 'dodo')
+    client = Client.new(firstname: 'jouhny', lastname: 'dodo')
+    client.save!
+  rescue => e
+    puts e
+    puts client.errors.inspect
+  end
+  puts
+
+  puts "--Orders without product validation--"
+  order = Order.new(status: 'PROGRESS', client: Client.first)
+  begin
+    order.save!
   rescue => e
     puts e
   end
   puts
 
-  puts "--Try to do an order that doesn't have any product--"
   begin
-    Order.create!(status: 'PROGRESS')
+    order.order_items.build
+    order.save!
   rescue => e
     puts e
+    puts order.order_items.map(&:errors).inspect
+  end
+  puts
+
+  begin
+    order.order_items.build(quantity: 10)
+    order.save!
+  rescue => e
+    puts e
+    puts order.order_items.map(&:errors).inspect
   end
   puts
 

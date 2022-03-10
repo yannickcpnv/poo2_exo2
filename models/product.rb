@@ -6,6 +6,6 @@ class Product < ActiveRecord::Base
   scope :cheap, -> { where('price <= 0.20') }
 
   def to_s
-    "N°#{id} : #{name}, #{price}CHF"
+    "N°#{id} : #{name}, #{total_price}CHF"
   end
 end

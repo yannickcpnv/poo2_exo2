@@ -5,7 +5,12 @@ class OrderItem < ActiveRecord::Base
   scope :bulk, ->(quantity = 100) { where('quantity >= ?', quantity) }
 
   validates :product, presence: true
-  validates :quantity, numericality: { greater_than: 0 }
+  validates :quantity, numericality: { greater_than: 0, only_integer: true }
 
-  before_create { self.item_price = product.price }
+  before_create { self.item_price = self.product.price }
+
+  # @return [BigDecimal]
+  def total_price
+    self.item_price * self.quantity
+  end
 end

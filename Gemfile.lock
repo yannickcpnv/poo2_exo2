@@ -70,6 +70,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_migrations (~> 6)
   activerecord (~> 6)
+  minitest
   mysql2
 
 BUNDLED WITH
