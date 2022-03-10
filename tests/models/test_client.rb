@@ -1,36 +1,44 @@
-require "minitest/autorun"
-require_relative '../../connection'
-require_relative "../../models/client"
+require_relative "test"
 
 #noinspection RubyInstanceMethodNamingConvention
 class TestClient < Minitest::Test
   def setup
-    create_valid_client
+    @client = TestHelpers.make_valid_client
   end
 
-  def create_valid_client
-    @client = Client.new firstname: 'yannick', lastname: 'baudraz'
+  # @note Exigency 3.1
+  def test_cheap_products_ordered
+    cheap_limit = 0.20
+    expected_count = 4
+    cheap_products = Client.first.ordered_products.cheap
+
+    assert_equal expected_count, cheap_products.count
+    cheap_products.each { |product| assert_operator product.price, '<=', cheap_limit }
   end
 
-  def test_client_without_firstname_is_invalid
+  # @note Exigency 4.1
+  def test_firstname_not_present_is_invalid
     @client.firstname = nil
 
     assert @client.invalid?
   end
 
-  def test_client_without_lastname_is_invalid
+  # @note Exigency 4.1
+  def test_lastname_not_present_is_invalid
     @client.lastname = nil
 
     assert @client.invalid?
   end
 
-  def test_firstname_is_too_short
+  # @note Exigency 4.1
+  def test_firstname_too_short_is_invalid
     @client.firstname = 'u'
 
     assert @client.invalid?
   end
 
-  def test_lastname_is_too_short
+  # @note Exigency 4.1
+  def test_lastname_too_short_is_invalid
     @client.lastname = 'u'
 
     assert @client.invalid?

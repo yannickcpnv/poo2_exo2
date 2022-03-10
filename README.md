@@ -39,6 +39,8 @@ rake document:erd title="poo1_2021_shop" sources="./connection.rb,./models.rb
 
 ## Tests
 
+It's recommended to refresh the database with data before execute new tests.
+
 ```shell
 bundle exec rake test
 ```

@@ -8,6 +8,7 @@ product1 = Product.create!(name: 'apple', price: 0.15, description: 'Little appl
 product2 = Product.create!(name: 'lemon', price: 6.15, description: 'Big lemon', category: pcr)
 product3 = Product.create!(name: 'limousine', price: 25.95, description: 'A limousine', category: sup)
 product4 = Product.create!(name: 'truck', price: 200, description: 'A truck', category: sup)
+product4 = Product.create!(name: 'lollipop', price: 0.20, description: 'Chupa chup', category: sup)
 
 client = Client.create!(firstname: 'yannick', lastname: 'baudraz')
 Client.create!(firstname: 'john', lastname: 'doedoe')

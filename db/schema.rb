@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2022_03_03_084454) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
-  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "orders", on_delete: :cascade
   add_foreign_key "order_items", "products"
-  add_foreign_key "orders", "clients"
+  add_foreign_key "orders", "clients", on_delete: :cascade
   add_foreign_key "products", "categories"
 end
