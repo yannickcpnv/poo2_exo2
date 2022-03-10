@@ -1,6 +1,8 @@
 require "minitest/autorun"
 require_relative '../../connection'
-require_relative "../../models"
+require_relative "../../models/order"
+require_relative "../../models/client"
+require_relative "../../models/product"
 
 #noinspection RubyInstanceMethodNamingConvention
 class TestOrder < Minitest::Test

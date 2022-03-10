@@ -81,14 +81,5 @@ def ex4
   puts
 end
 
-def ex5
-  puts "--EXIGENCY N°5--"
-  puts
-
-  puts '--Display each orders total price--'
-  Order.all.each { |o| puts "Order N°#{o.id} : #{o.total_price}CHF" }
-end
-
 ex3
 ex4
-ex5

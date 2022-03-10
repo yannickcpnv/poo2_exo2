@@ -2,5 +2,5 @@ development:
   adapter: mysql2
   host: 127.0.0.1
   username: root
-  password: 11091993
+  password: yannickcpnv
   database: poo1_2021_shop
