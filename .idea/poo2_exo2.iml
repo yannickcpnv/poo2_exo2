@@ -11,14 +11,15 @@
     </content>
     <orderEntry type="jdk" jdkName="ruby-3.1.0-p0" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="actionpack (v6.1.4.6, ruby-3.1.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionview (v6.1.4.6, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionpack (v6.1.4.7, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionview (v6.1.4.7, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="active_record_migrations (v6.1.1.2, ruby-3.1.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activemodel (v6.1.4.6, ruby-3.1.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activerecord (v6.1.4.6, ruby-3.1.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activesupport (v6.1.4.6, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activemodel (v6.1.4.7, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activerecord (v6.1.4.7, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v6.1.4.7, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.3.3, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="choice (v0.2.0, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.9, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.10.0, ruby-3.1.0-p0) [gem]" level="application" />
@@ -27,14 +28,17 @@
     <orderEntry type="library" scope="PROVIDED" name="method_source (v1.0.0, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.15.0, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mysql2 (v0.5.3, ruby-3.1.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.13.1, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.13.3, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.6.0, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.0.3, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails-erd (v1.6.1, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.4.2, ruby-3.1.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="railties (v6.1.4.6, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="railties (v6.1.4.7, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.0.6, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.5, ruby-3.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-graphviz (v1.2.5, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.2.1, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.4, ruby-3.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.5.4, ruby-3.1.0-p0) [gem]" level="application" />
@@ -137,6 +141,13 @@
               <RakeTaskImpl description="" fullCommand="db:truncate_all" id="truncate_all" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl id="document">
+            <subtasks>
+              <RakeTaskImpl description="Generate an ERD diagram with raisl-erd, pass a title in `title`, pass source files path in `sources` with comma separated values, pass the output format in `format`, you may pass your own template in `template`, optionnaly `output` as the output filename" fullCommand="document:erd" id="erd" />
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl description="Run tests" fullCommand="test" id="test" />
+          <RakeTaskImpl description="" fullCommand="default" id="default" />
           <RakeTaskImpl description="" fullCommand="environment" id="environment" />
           <RakeTaskImpl id="railties">
             <subtasks>

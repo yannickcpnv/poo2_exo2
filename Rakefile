@@ -1,4 +1,5 @@
 require 'active_record_migrations'
+require_relative 'erd'
 ActiveRecordMigrations.load_tasks
 
 # Simple hack to prevent the error below when using `references` type on db:new_migration

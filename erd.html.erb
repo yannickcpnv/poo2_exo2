@@ -1,0 +1,25 @@
+<% if options.orientation == :horizontal %>{
+<% end %>
+<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="<%= NODE_WIDTH + 4 %>">
+  <tr>
+    <td align="center" valign="bottom" width="<%= NODE_WIDTH %>">
+      <font face="<%= FONTS[:bold] %>" point-size="11"><b><%= entity.name %></b></font></td>
+  </tr>
+</table>
+<% if attributes.any? %>
+  |
+  <table border="0" align="left" cellspacing="2" cellpadding="0" width="<%= NODE_WIDTH + 4 + 10 %>">
+    <% attributes.each do |attribute| %>
+      <tr>
+        <td align="left" width="10">
+          <font color="<%= attr_color(attribute) %>"><%= attribute.mandatory? ? '⬥' : '⬦' %></font></td>
+        <td align="left" width="<%= NODE_WIDTH / 2 %>" port="<%= attribute %>"><%= attribute %></td>
+        <td align="left" width="<%= NODE_WIDTH / 2 %>">
+          <font color="grey60"><%= [attribute.type, attribute.limit_description].join(' ') %></font></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+<% end %>
+<% if options.orientation == :horizontal %>}
+<% end %>
