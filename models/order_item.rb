@@ -10,7 +10,7 @@ class OrderItem < ActiveRecord::Base
   before_create { self.item_price = self.product.price }
 
   # @return [BigDecimal]
-  def total_price
+  def price
     self.item_price * self.quantity
   end
 end

@@ -7,6 +7,6 @@ class Order < ActiveRecord::Base
   validates_associated :order_items
 
   def total_price
-    order_items.sum(&:total_price)
+    order_items.sum(&:price)
   end
 end
