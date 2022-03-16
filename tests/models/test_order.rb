@@ -51,7 +51,7 @@ class TestOrder < Minitest::Test
   #endregion
 
   # Exigency 5.1
-  def test_total_price
+  def test_price
     expected_price = 1498.5
     @order.order_items.clear
     @order.order_items << [
@@ -62,7 +62,7 @@ class TestOrder < Minitest::Test
     ]
     @order.save
 
-    assert_equal expected_price, @order.total_price
+    assert_equal expected_price, @order.price
   end
 
   def teardown

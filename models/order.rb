@@ -6,7 +6,8 @@ class Order < ActiveRecord::Base
   validates :order_items, :client, presence: true
   validates_associated :order_items
 
-  def total_price
+  def price
+    #order_items.sum { |order_item| order_item.price }
     order_items.sum(&:price)
   end
 end
