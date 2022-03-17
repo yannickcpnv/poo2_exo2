@@ -34,7 +34,7 @@ ruby seed.rb
 #### ERD diagram
 
 ```shell
-rake document:erd title="poo1_2021_shop" sources="./connection.rb,./models.rb
+rake document:erd title="poo1_2022_shop" sources="./connection.rb,./models.rb"
 ```
 
 ## Tests

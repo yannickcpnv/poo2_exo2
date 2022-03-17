@@ -12,6 +12,8 @@ product4 = Product.create!(name: 'lollipop', price: 0.20, description: 'Chupa ch
 
 client = Client.create!(firstname: 'yannick', lastname: 'baudraz')
 Client.create!(firstname: 'john', lastname: 'doedoe')
+Company.create!(firstname: 'steve', lastname: 'jobs', brand: 'pear', employees_number: 42373)
+Individual.create!(firstname: 'business', lastname: 'man', premium: true, loyalty_points: 99)
 
 client.orders.create(status: 'PROGRESS', client: client, order_items: [
   OrderItem.new(quantity: 2, product: product1),
