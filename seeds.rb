@@ -7,8 +7,18 @@ sup = Category.create!(name: 'SUP')
 product1 = Product.create!(name: 'apple', price: 0.15, description: 'Little apple', category: pcr)
 product2 = Product.create!(name: 'lemon', price: 6.15, description: 'Big lemon', category: pcr)
 product3 = Product.create!(name: 'limousine', price: 25.95, description: 'A limousine', category: sup)
-product4 = Product.create!(name: 'truck', price: 200, description: 'A truck', category: sup)
 product4 = Product.create!(name: 'lollipop', price: 0.20, description: 'Chupa chup', category: sup)
+product5 = Product.create!(name: 'truck', price: 200, description: 'A truck', category: sup)
+
+Supplier.create([
+                  { name: 'migros' },
+                  { name: 'migros', phone_number: '+41214266613' },
+                  { name: 'denner' },
+                  { name: 'manor' },
+                ])
+Supplier.first.products << [product1]
+Supplier.second.products << [product2, product3, product4]
+Supplier.third.products << [product5]
 
 client = Client.create!(firstname: 'yannick', lastname: 'baudraz')
 Client.create!(firstname: 'john', lastname: 'doedoe')

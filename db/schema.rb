@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_17_010522) do
+ActiveRecord::Schema.define(version: 2022_03_17_073246) do
 
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -49,11 +49,19 @@ ActiveRecord::Schema.define(version: 2022_03_17_010522) do
     t.decimal "price", precision: 10, scale: 2
     t.text "description"
     t.bigint "category_id"
+    t.bigint "supplier_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["supplier_id"], name: "index_products_on_supplier_id"
+  end
+
+  create_table "suppliers", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
   end
 
   add_foreign_key "order_items", "orders", on_delete: :cascade
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "clients", on_delete: :cascade
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "suppliers", on_update: :cascade, on_delete: :nullify
 end

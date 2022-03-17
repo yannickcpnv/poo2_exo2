@@ -7,5 +7,6 @@ awesome_print models = {
   clients: Client.all.to_a,
   orders: Order.all.to_a,
   products: Product.all.to_a,
-  order_items: OrderItem.all.to_a
+  order_items: OrderItem.all.to_a,
+  suppliers: Supplier.all.to_a
 }, indent: -4

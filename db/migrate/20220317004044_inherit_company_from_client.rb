@@ -1,4 +1,4 @@
-class InheritCompaniesFromClients < ActiveRecord::Migration[6.1]
+class InheritCompanyFromClient < ActiveRecord::Migration[6.1]
   def change
     change_table :clients do |t|
       t.string :brand
