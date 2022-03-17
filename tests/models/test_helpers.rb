@@ -1,6 +1,6 @@
 class TestHelpers
-  def self.make_valid_client
-    Client.new firstname: 'yannick', lastname: 'baudraz'
+  def self.make_valid_individual
+    Individual.new firstname: 'yannick', lastname: 'baudraz'
   end
 
   def self.make_valid_order

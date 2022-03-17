@@ -58,7 +58,7 @@ class TestOrder < Minitest::Test
       OrderItem.new(quantity: 5, product: Product.first),
       OrderItem.new(quantity: 2, product: Product.second),
       OrderItem.new(quantity: 11, product: Product.third),
-      OrderItem.new(quantity: 6, product: Product.fourth)
+      OrderItem.new(quantity: 6, product: Product.fifth)
     ]
     @order.save
 

@@ -5,8 +5,4 @@ class Product < ActiveRecord::Base
   has_many :orders, through: :order_items
 
   scope :cheap, -> { where('price <= 0.20') }
-
-  def to_s
-    "N°#{id} : #{name}, #{price}CHF"
-  end
 end
