@@ -10,3 +10,4 @@ gem 'mysql2'
 gem "minitest"
 gem "rails-erd", "~> 1.6"
 gem "awesome_print", "~> 1.9"
+gem "rails-observers", "~> 0.1.5"

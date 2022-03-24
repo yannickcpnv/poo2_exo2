@@ -1,8 +1,9 @@
-require_relative "test"
+require_relative "abstract_db_test"
 
 #noinspection RubyInstanceMethodNamingConvention
-class TestIndividual < Minitest::Test
+class TestIndividual < AbstractDbTest
   def setup
+    super
     @individual = TestHelpers.make_valid_individual
   end
 

@@ -1,8 +1,9 @@
-require_relative 'test'
+require_relative "abstract_db_test"
 
 #noinspection RubyInstanceMethodNamingConvention
-class TestSupplier < Minitest::Test
+class TestSupplier < AbstractDbTest
   def setup
+    super
     @supplier = nil
   end
 

@@ -59,6 +59,8 @@ GEM
       ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails-observers (0.1.5)
+      activemodel (>= 4.0)
     railties (6.1.4.7)
       actionpack (= 6.1.4.7)
       activesupport (= 6.1.4.7)
@@ -84,6 +86,7 @@ DEPENDENCIES
   minitest
   mysql2
   rails-erd (~> 1.6)
+  rails-observers (~> 0.1.5)
 
 BUNDLED WITH
    2.3.3

@@ -2,6 +2,9 @@ require 'awesome_print'
 require_relative 'connection'
 require_relative 'models'
 
+ActiveRecord::Base.observers << :comment_observer
+ActiveRecord::Base.instantiate_observers
+
 awesome_print models = {
   categories: Category.all.to_a,
   clients: Client.all.to_a,

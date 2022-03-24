@@ -1,14 +1,14 @@
-require_relative 'connection'
-require_relative 'models'
+require_relative '../connection'
+require_relative '../models'
 
 pcr = Category.create!(name: 'PCR')
 sup = Category.create!(name: 'SUP')
 
-product1 = Product.create!(name: 'apple', price: 0.15, description: 'Little apple', category: pcr)
-product2 = Product.create!(name: 'lemon', price: 6.15, description: 'Big lemon', category: pcr)
-product3 = Product.create!(name: 'limousine', price: 25.95, description: 'A limousine', category: sup)
-product4 = Product.create!(name: 'lollipop', price: 0.20, description: 'Chupa chup', category: sup)
-product5 = Product.create!(name: 'truck', price: 200, description: 'A truck', category: sup)
+product1 = Product.create!(name: 'apple', price: 0.15, level_of_stock: 400, description: 'Little apple', category: pcr)
+product2 = Product.create!(name: 'lemon', price: 6.15, level_of_stock: 400, description: 'Big lemon', category: pcr)
+product3 = Product.create!(name: 'limousine', price: 25.95, level_of_stock: 400, description: 'A limousine', category: sup)
+product4 = Product.create!(name: 'lollipop', price: 0.20, level_of_stock: 400, description: 'Chupa chup', category: sup)
+product5 = Product.create!(name: 'truck', price: 200, level_of_stock: 400, description: 'A truck', category: sup)
 
 Supplier.create(
   [
@@ -21,7 +21,6 @@ Supplier.create(
 Supplier.first.products << [product1]
 Supplier.second.products << [product2, product3, product4]
 Supplier.third.products << [product5]
-supplier = Supplier.first
 
 client = Individual.create!(firstname: 'yannick', lastname: 'baudraz')
 Individual.create!(firstname: 'john', lastname: 'doedoe')
@@ -49,5 +48,3 @@ client.comments << [
   Comment.new(body: 'This is REALLY bad !', target: Supplier.first),
   Comment.new(body: 'This one is good :)', target: Supplier.second),
 ]
-
-puts '--SEEDERS DONE--'

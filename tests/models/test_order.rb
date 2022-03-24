@@ -1,8 +1,9 @@
-require_relative "test"
+require_relative "abstract_db_test"
 
 #noinspection RubyInstanceMethodNamingConvention
-class TestOrder < Minitest::Test
+class TestOrder < AbstractDbTest
   def setup
+    super
     @order = TestHelpers.make_valid_order
   end
 
@@ -63,10 +64,5 @@ class TestOrder < Minitest::Test
     @order.save
 
     assert_equal expected_price, @order.price
-  end
-
-  def teardown
-    @order.order_items.delete
-    @order.delete
   end
 end

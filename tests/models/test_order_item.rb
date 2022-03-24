@@ -1,7 +1,7 @@
-require_relative "test"
+require_relative "abstract_db_test"
 
 #noinspection RubyInstanceMethodNamingConvention
-class TestOrderItem < Minitest::Test
+class TestOrderItem < AbstractDbTest
   # @note Exigency 3.2
   def test_default_bulk
     expected_count = 2
@@ -25,17 +25,42 @@ class TestOrderItem < Minitest::Test
   end
 
   # Exigency 5.2
-  def test_item_price_is_copied_from_product_price_before_creation
-    product = Product.first
-    order = TestHelpers.make_valid_order
-    order_item = order.order_items.first
+  def test_before_create_item_price_is_copied_from_product_price
+    order_item = TestHelpers.make_valid_order_item
 
     order_item.save
 
     assert_equal order_item.product.price, order_item.item_price
+  end
 
-    # Delete the order
-    order.order_items.delete
-    order.delete
+  # Exigency 9
+  def test_after_save_create_add_quantity
+    # New order item with a quantity of 10
+    order_item = TestHelpers.make_valid_order_item
+    expected_level_of_stock = 387
+
+    order_item.save!
+
+    assert_equal expected_level_of_stock, order_item.product.level_of_stock
+  end
+
+  # Exigency 9
+  def test_after_save_update_add_quantity
+    order_item = OrderItem.second
+    expected_level_of_stock = 267
+
+    order_item.update! quantity: 130
+
+    assert_equal expected_level_of_stock, Product.third.level_of_stock
+  end
+
+  # Exigency 9
+  def test_after_save_update_remove_quantity
+    order_item = OrderItem.second
+    expected_level_of_stock = 277
+
+    order_item.update! quantity: 120
+
+    assert_equal expected_level_of_stock, Product.third.level_of_stock
   end
 end
