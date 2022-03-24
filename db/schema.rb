@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_17_073246) do
+ActiveRecord::Schema.define(version: 2022_03_23_125548) do
 
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -27,11 +27,22 @@ ActiveRecord::Schema.define(version: 2022_03_17_073246) do
     t.integer "loyalty_points"
   end
 
+  create_table "comments", charset: "utf8mb4", force: :cascade do |t|
+    t.text "body"
+    t.bigint "author_id"
+    t.string "target_type"
+    t.bigint "target_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["target_type", "target_id"], name: "index_comments_on_target"
+  end
+
   create_table "order_items", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "order_id"
-    t.bigint "product_id"
     t.integer "quantity"
     t.decimal "item_price", precision: 10, scale: 2
+    t.bigint "order_id"
+    t.bigint "product_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
@@ -59,6 +70,7 @@ ActiveRecord::Schema.define(version: 2022_03_17_073246) do
     t.string "phone_number"
   end
 
+  add_foreign_key "comments", "clients", column: "author_id"
   add_foreign_key "order_items", "orders", on_delete: :cascade
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "clients", on_delete: :cascade

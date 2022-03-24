@@ -21,6 +21,7 @@ Supplier.create(
 Supplier.first.products << [product1]
 Supplier.second.products << [product2, product3, product4]
 Supplier.third.products << [product5]
+supplier = Supplier.first
 
 client = Individual.create!(firstname: 'yannick', lastname: 'baudraz')
 Individual.create!(firstname: 'john', lastname: 'doedoe')
@@ -42,5 +43,11 @@ order2.order_items << [
   OrderItem.new(quantity: 200, product: product4)
 ]
 order2.save!
+
+client.comments << [
+  Comment.new(body: 'This is bad !', target: product1),
+  Comment.new(body: 'This is REALLY bad !', target: Supplier.first),
+  Comment.new(body: 'This one is good :)', target: Supplier.second),
+]
 
 puts '--SEEDERS DONE--'
