@@ -1,7 +1,9 @@
-require_relative "abstract_db_test"
+require_relative "db_test"
 
 #noinspection RubyInstanceMethodNamingConvention
-class TestComment < AbstractDbTest
+class TestComment < Minitest::Test
+  include DbTest
+
   # @note Exigency 8
   def test_client_create_comments
     client = Client.second

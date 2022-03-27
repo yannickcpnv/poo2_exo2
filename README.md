@@ -15,26 +15,26 @@ Change variable in `db/config.yaml` if needed.
 #### Creation
 
 ```shell
-rake db:create
+bundle exec rake db:create
 ```
 
 #### Structure and data
 
 ```shell
 # Create table and columns
-rake db:migrate
+bundle exec rake db:migrate
 
 # Reset and create table and columns
-rake db:migrate:reset
+bundle exec rake db:migrate:reset
 
 # Insert data
-ruby seed.rb
+bundle exec ruby seed.rb
 ```
 
 #### ERD diagram
 
 ```shell
-rake document:erd title="poo1_2022_shop" sources="./connection.rb,./models.rb"
+bundle exec rake document:erd title="poo1_2022_shop" sources="./connection.rb,./models.rb"
 ```
 
 ## Tests
@@ -42,9 +42,9 @@ rake document:erd title="poo1_2022_shop" sources="./connection.rb,./models.rb"
 It's recommended to refresh the database with data before execute new tests.
 
 ```shell
-bundle exec rake test
+bundle exec rake test TESTOPTS='-v
 ```
 
 ## Contributing
 
-See [Ex2](Ex2.md) for more details about what to do.
+See [Ex2](Ex2.md) and [EX2 suite](Ex2-suite.md) for more details about what to do.

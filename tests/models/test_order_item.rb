@@ -1,7 +1,9 @@
-require_relative "abstract_db_test"
+require_relative "db_test"
 
 #noinspection RubyInstanceMethodNamingConvention
-class TestOrderItem < AbstractDbTest
+class TestOrderItem < Minitest::Test
+  include DbTest
+
   # @note Exigency 3.2
   def test_default_bulk
     expected_count = 2

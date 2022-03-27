@@ -2,7 +2,7 @@ require_relative "test"
 require "rake"
 require "active_record_migrations"
 
-class AbstractDbTest < Minitest::Test
+module DbTest
   def setup
     Rake.application.init
     Rake.application.load_rakefile

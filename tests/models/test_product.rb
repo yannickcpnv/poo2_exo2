@@ -1,7 +1,9 @@
-require_relative "abstract_db_test"
+require_relative "db_test"
 
 #noinspection RubyInstanceMethodNamingConvention
-class TestProduct < AbstractDbTest
+class TestProduct < Minitest::Test
+  include DbTest
+
   # @note Exigency 3.1
   def test_cheap_products
     expected_count = 2

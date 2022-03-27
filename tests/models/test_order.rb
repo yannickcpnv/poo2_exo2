@@ -1,7 +1,9 @@
-require_relative "abstract_db_test"
+require_relative "db_test"
 
 #noinspection RubyInstanceMethodNamingConvention
-class TestOrder < AbstractDbTest
+class TestOrder < Minitest::Test
+  include DbTest
+
   def setup
     super
     @order = TestHelpers.make_valid_order
@@ -64,5 +66,16 @@ class TestOrder < AbstractDbTest
     @order.save
 
     assert_equal expected_price, @order.price
+  end
+
+  # Exigency S.1
+  def test_most_expensive
+    expected_order = Order.first
+    expected_order_price = expected_order.price #3244.65
+
+    order = Order.most_expensive
+
+    assert_equal expected_order, order
+    assert_equal expected_order_price, order.price
   end
 end
