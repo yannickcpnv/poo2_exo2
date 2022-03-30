@@ -29,6 +29,9 @@ bundle exec rake db:migrate:reset
 
 # Insert data
 bundle exec ruby seed.rb
+
+# Insert data after delete them
+bundle exec rake db:seed:replant
 ```
 
 #### ERD diagram

@@ -2,7 +2,7 @@ class OrderItem < ActiveRecord::Base
   belongs_to :order
   belongs_to :product
 
-  scope :bulk, ->(quantity = 100) { where('quantity >= ?', quantity) }
+  scope :bulk, -> (quantity = 100) { where('quantity >= ?', quantity) }
 
   validates :product, :order, presence: true
   validates :quantity, numericality: { greater_than: 0, only_integer: true }

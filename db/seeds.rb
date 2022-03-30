@@ -35,7 +35,7 @@ client.orders.create(status: 'PROGRESS', client: client, order_items: [
   OrderItem.new(quantity: 3, product: product4)
 ])
 
-order2 = Order.new(status: 'PROGRESS', client: client)
+order2 = Order.new(status: 'PROGRESS', client: client, created_at: 21.days.from_now, updated_at: 21.days.from_now)
 order2.order_items << [
   OrderItem.new(quantity: 1, product: product1),
   OrderItem.new(quantity: 75, product: product2),

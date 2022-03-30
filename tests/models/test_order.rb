@@ -78,4 +78,18 @@ class TestOrder < Minitest::Test
     assert_equal expected_order, order
     assert_equal expected_order_price, order.price
   end
+
+  def test_between_dates
+    Client.first.orders.create(status: 'PROGRESS', client: Client.first, order_items: [
+      OrderItem.new(quantity: 2, product: Product.first),
+    ], created_at: 34.days.from_now)
+
+    date_from = 10.days.from_now
+    date_to = 2.months.from_now
+    expected_orders_count = 2
+
+    orders = Order.between_dates(date_from, date_to)
+
+    assert_equal expected_orders_count, orders.count
+  end
 end
