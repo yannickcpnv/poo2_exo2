@@ -7,7 +7,11 @@ class Order < ActiveRecord::Base
   validates_associated :order_items
 
   def self.most_expensive
-    all.reduce { |o1, o2| (o1.price > o2.price) ? o1 : o2 }
+    select('orders.*, sum(quantity*item_price) as total_price')
+      .joins(:order_items)
+      .group('orders.id')
+      .order('total_price DESC')
+      .first
   end
 
   def price
