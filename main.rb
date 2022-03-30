@@ -2,7 +2,7 @@ require 'awesome_print'
 require_relative 'connection'
 require_relative 'models'
 
-ActiveRecord::Base.observers << :comment_observer
+ActiveRecord::Base.observers << :product_observer
 ActiveRecord::Base.instantiate_observers
 
 awesome_print models = {
