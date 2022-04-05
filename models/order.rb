@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
   validates :order_items, :client, presence: true
   validates_associated :order_items
 
-  scope :between_dates, -> (date1, date2) { where("created_at BETWEEN ? AND ?", date1, date2) }
+  scope :between_dates, -> (start_date, end_date) { where(created_at: start_date..end_date) }
 
   def self.most_expensive
     select('orders.*, sum(quantity*item_price) as total_price')
